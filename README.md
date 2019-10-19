@@ -50,4 +50,4 @@ And then it will spawn an SSH connection so you can screw up production.
 
 You can also get into Staging Database with just one line:
 
-    $ sshyguy -s staging-dbs
+    $ sshyguy -s staging-db
