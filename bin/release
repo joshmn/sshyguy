@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/sshyguy/version'
+
+version = SshyGuy::VERSION
+system("gem build sshyguy.gemspec")
+system("gem push sshyguy-#{version}.gem")
+system("rm sshyguy-#{version}.gem")
+system("git tag -a v#{version} -m 'version #{version}'")
+system("git push origin v#{version}")
