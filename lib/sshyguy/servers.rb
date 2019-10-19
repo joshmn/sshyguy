@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 module SshyGuy
-  def self.servers=(val)
-    @servers = val
-  end
+  module Servers
+    def self.servers=(val)
+      @servers = val
+    end
 
-  def self.servers
-    @servers ||= []
+    def self.servers
+      @servers ||= []
+    end
   end
 end

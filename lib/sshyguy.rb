@@ -15,6 +15,8 @@ require 'sshyguy/command'
 require 'sshyguy/cli'
 
 module SshyGuy
+  extend SshyGuy::Servers
+  extend SshyGuy::Params
   class Error < StandardError; end
 
   def self.configuration
@@ -53,8 +55,8 @@ module SshyGuy
       SshyGuy.log(file)
       SshyGuy.log('Parsing file')
       json = JSON.parse(file)
-      if json['version'] < SshyGuy::CONFIG_VERSION
-        puts 'Configuration out of date.'
+      if json['version'].to_i < SshyGuy::CONFIG_VERSION
+        puts 'Warning: Configuration out of date.'
       end
       SshyGuy.log('Parsed')
       SshyGuy.log('Parsed contents')
@@ -71,7 +73,7 @@ module SshyGuy
           log("Skipping server #{server.inspect}")
         end
       end
-    rescue JSONError => e
+    rescue JSON::ParserError => e
       puts e
       puts "Unable to parse config file. Ensure it's valid JSON."
       exit
