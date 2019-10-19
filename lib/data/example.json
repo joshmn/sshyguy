@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "config": {
+    "debug": false,
+    "cycle": true,
+    "filter": true,
+    "editor": "vi",
+    "ssh_defaults": {
+      "user": "root",
+      "port": 22,
+      "options": "",
+      "hostname": ""
+    }
+  },
+  "servers": [
+    {
+      "hostname": "192.168.0.123",
+      "port": "60301",
+      "user": "deploy",
+      "label": "Production",
+      "shortcut": "production",
+      "folder": "Default",
+      "options": "-L 8888:192.168.1.111:1234"
+    },
+    {
+      "hostname": "",
+      "user": "",
+      "label": "",
+      "command": ""
+    }
+  ]
+}
