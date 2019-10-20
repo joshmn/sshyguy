@@ -2,11 +2,11 @@
 
 module SshyGuy
   module Servers
-    def self.servers=(val)
+    def servers=(val)
       @servers = val
     end
 
-    def self.servers
+    def servers
       @servers ||= []
     end
   end

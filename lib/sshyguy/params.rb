@@ -2,15 +2,15 @@
 
 module SshyGuy
   module Params
-    def self.params
+    def params
       @params ||= {}
     end
 
-    def self.params=(val)
+    def params=(val)
       @params = val
     end
 
-    def self.reload_params!
+    def reload_params!
       self.params = {}
     end
   end
